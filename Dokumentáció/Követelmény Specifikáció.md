@@ -19,6 +19,8 @@ fejlesztés is(pl. Android, IOS).
 ## 4.Funkcionális Követelmények
   
 ## 5.Rendszerre vonatkozó törvények, szabványok, ajánlások
+- Unity fejlesztői környezetben
+- C# nyelven
 
 ## 6. Jelenlegi üzleti folyamatok modellje
 
