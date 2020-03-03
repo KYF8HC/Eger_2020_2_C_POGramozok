@@ -1,4 +1,5 @@
 # 1.Rendszer célja:
+- Egy mozi számára szeretnénk, alkalmazást fejleszteni. Az alkalmazásban a megrendelő részére külön admin felületet hoznánk létre, így könnyedén módosíthatja a mozi kínálatát. Az admin felületen filmeket tud feltölteni a tulajdonos, moderálni az értékeléseket/oda nem illő megjegyzéseket. 
 
 # 2.Projektterv: 
 
