@@ -9,18 +9,15 @@ harcosai. Ahogy teljesítünk egy kört, a következőben ellenségünk hadai m�
 és többen próbálják majd ismét bevenni bázisunkat.
 
 ## 2.Jelenlegi helyzet:
-- Célunk egy naprakész játék létrehozása ebben a stílusban, amit akár publikálható szintre 
-is tudunk fejleszteni. 
+- Célunk egy naprakész alkalmazás létrehozása , ami egy mozi film listáját fogja tárolni , be lehet jelentkezni és jegyet is lehet lesz foglalni.
 
 ## 3. Vágyálom Rendszer:
-- Projektünk célja, hogy létre tudjunk hozni egy stabil lábakon álló játékot elsősorban számítógépre, de tervben van több platformra
+- Projektünk célja, hogy létre tudjunk hozni egy stabil lábakon álló alkalmazást elsősorban számítógépre, de tervben van több platformra
 fejlesztés is(pl. Android, IOS). 
   
 ## 4.Funkcionális Követelmények
   
 ## 5.Rendszerre vonatkozó törvények, szabványok, ajánlások
-- Unity fejlesztői környezetben
-- C# nyelven
 
 ## 6. Jelenlegi üzleti folyamatok modellje
 
