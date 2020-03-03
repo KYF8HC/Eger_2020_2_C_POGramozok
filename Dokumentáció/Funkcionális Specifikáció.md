@@ -12,16 +12,27 @@ harcosai. Ahogy teljesítünk egy kört, a következőben ellenségünk hadai m�
 - Célunk egy naprakész játék létrehozása ebben a stílusban, amit akár publikálható szintre 
 is tudunk fejleszteni. 
 
-## 3. Vágyálom Rendszer:
+## 3.Követelménylista
+
+## 4. Jelenlegi üzleti folyamatok modellje
 - Projektünk célja, hogy létre tudjunk hozni egy stabil lábakon álló játékot elsősorban számítógépre, de tervben van több platformra
 fejlesztés is(pl. Android, IOS). 
   
-## 4.Funkcionális Követelmények
+## 4. Igényelet üzleti folyamatok modellje
   
-## 5.Rendszerre vonatkozó törvények, szabványok, ajánlások
+## 5. Igényelt üzleti folyamatok modellje
 - Unity fejlesztői környezetben
 - C# nyelven
 
-## 6. Jelenlegi üzleti folyamatok modellje
+## 6. Használati esetek
 
-## 7. Igényelt üzleti folyamatok modellje
+## 7. Megfeleltetés, hogyan fedik le a használati esetek a követelményeket
+
+## 8. Képernyő tervek
+
+## 9. Forgatókönyv
+
+## 10. Funkció-követelmény megfeleltetés
+
+## 11. Fogalomszótár
+
