@@ -18,7 +18,11 @@
 ![MoziUML](https://github.com/KYF8HC/Eger_2020_2_C_POGramozok/blob/master/Dokument%C3%A1ci%C3%B3/MoziUML.png)
 
 # 4.Követelmények:
-
+* Funkcionális követelmények: 
+  * Felhasználók adatainak tárolása
+  * Android környezetben való működés
+* Nem funkcionális követelmények:
+  * A felhasználók nem juthatnak hozzá más felhasználók személyes adataihoz, csak a felhasználónevükhöz.
 # 5.Funckionális terv: 
 
 # 6.Fizikai környezet:
