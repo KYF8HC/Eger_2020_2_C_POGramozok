@@ -31,7 +31,5 @@ harcosai. Ahogy teljesítünk egy kört, a következőben ellenségünk hadai m�
 
 ## 9. Forgatókönyv
 
-## 10. Funkció-követelmény megfeleltetés
-
-## 11. Fogalomszótár
+## 10. Fogalomszótár
 
