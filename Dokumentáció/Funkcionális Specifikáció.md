@@ -15,8 +15,7 @@ harcosai. Ahogy teljesítünk egy kört, a következőben ellenségünk hadai m�
 ## 3.Követelménylista
 
 ## 4. Jelenlegi üzleti folyamatok modellje
-- Projektünk célja, hogy létre tudjunk hozni egy stabil lábakon álló játékot elsősorban számítógépre, de tervben van több platformra
-fejlesztés is(pl. Android, IOS). 
+- Projektünk célja eggyrészt hogy a mozinak a filmkínálatáról akár online is lehessen tájokozódni illetve , hogy az időpontokkal is tisztában lehessenek az emberek. Szeretnénk ezzel megszüntetni a mozi jegypánztárát megrohamozó tömeget és a hosszas várakozási időt  csökkenteni. 
   
 ## 4. Igényelet üzleti folyamatok modellje
   
