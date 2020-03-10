@@ -15,6 +15,8 @@
 
 # 3.Üzeleti folyamatok modellje:
 
+![MoziUML](https://github.com/KYF8HC/Eger_2020_2_C_POGramozok/blob/master/Dokument%C3%A1ci%C3%B3/MoziUML.png)
+
 # 4.Követelmények:
 
 # 5.Funckionális terv: 
