@@ -7,6 +7,12 @@
 - Feladatuk az adatok tárolásához szükséges adatszerkezetek kialakítása, funkciók létrehozása, a különböuő platformok kiszolgálása adatokkal.
 ## Ütemterv:
 
+|Funkció|Feladat|Prioritás|Becslés|Aktuális becslés|Eltelt idő|Hátralévő idő|
+|---|---|---|---|---|---|---|
+|Követelmény Specifikáció||0|24|20|20|0|
+|Funkcionális Specifikáció||0|24|20|20|0|
+|Rendszerterv||0|24|24|24|0|
+
 # 3.Üzeleti folyamatok modellje:
 
 # 4.Követelmények:
