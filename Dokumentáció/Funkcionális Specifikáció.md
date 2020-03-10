@@ -9,8 +9,8 @@ harcosai. Ahogy teljesítünk egy kört, a következőben ellenségünk hadai m�
 és többen próbálják majd ismét bevenni bázisunkat.
 
 ## 2.Jelenlegi helyzet:
-- Célunk egy naprakész játék létrehozása ebben a stílusban, amit akár publikálható szintre 
-is tudunk fejleszteni. 
+- Szeretnénk létrehozni egy mozis weboldalt aminek minden funkciója megfelően müködik és megfelel az elvárásoknak is .
+  a megrendelő szeretne egy pár dolgot extraként , az oldalon ne csak a mozi filmeket és az előadás dátumait lehessen megtekinteni ,hanem akár jegyet is lehessen foglalni egy adott filmre , minden széket jelenitsen meg a program illetve a már lefoglalt székeket is jelenitse meg egy külön szinnel ,vagy jelzéssel , hogy azokra a székekre ne leheseen kétszer jegyet venni.
 
 ## 3.Követelménylista
 
