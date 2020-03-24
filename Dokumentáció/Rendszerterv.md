@@ -31,7 +31,20 @@
 * Nem funkcionális követelmények:
   * A felhasználók nem juthatnak hozzá más felhasználók személyes adataihoz, csak a felhasználónevükhöz.
 # 5.Funckionális terv: 
-
+## Rendszer szereplői:
+ * Admin
+ * User
+## Rendszerhasználati esetek:
+* Admin: 
+ * Beléphet bármilyen szereplőként teljes hozzáférése van a rendszerhez
+ * A felhasználói adatokat látják, változtathatják
+ * Felhasználó hozzáadására, törlésére van lehetőségük
+ * Filmek feltöltése, módosítása, törlése
+ * Filmek értékelésének moderálása
+* User: 
+ * Jegyet foglalhat filmekre
+ * Értékeléseket írhat
+ * Megtekintheti a filmek leírását, illetve az értékeléseket
 # 6.Fizikai környezet:
 
 # 7.Absztrakt domain modell:
