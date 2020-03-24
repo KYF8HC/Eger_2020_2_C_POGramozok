@@ -12,6 +12,13 @@
 |Követelmény Specifikáció||0|24|20|20|0|
 |Funkcionális Specifikáció||0|24|20|20|0|
 |Rendszerterv||0|24|24|24|0|
+|Adattárolás|Adatmodell megtervezése|0|2|2|0|2|
+||Adatbázis megvalósítása|0|4|4|0|4|
+|Login felület|Backend|1|6|6|0|6|
+||Frontend|2|4|4|0|4|
+|Jegyfoglalás|Backend|1|4|4|0|4|
+||Frontend|1|4|4|0|4|
+
 
 # 3.Üzeleti folyamatok modellje:
 
