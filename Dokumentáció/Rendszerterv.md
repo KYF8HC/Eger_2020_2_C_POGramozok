@@ -36,21 +36,21 @@
  * User
 ## Rendszerhasználati esetek:
 * Admin: 
- * Beléphet bármilyen szereplőként teljes hozzáférése van a rendszerhez
- * A felhasználói adatokat látják, változtathatják
- * Felhasználó hozzáadására, törlésére van lehetőségük
- * Filmek feltöltése, módosítása, törlése
- * Filmek értékelésének moderálása
+  * Beléphet bármilyen szereplőként teljes hozzáférése van a rendszerhez
+  * A felhasználói adatokat látják, változtathatják
+  * Felhasználó hozzáadására, törlésére van lehetőségük
+  * Filmek feltöltése, módosítása, törlése
+  * Filmek értékelésének moderálása
 * User: 
- * Jegyet foglalhat filmekre
- * Értékeléseket írhat
- * Megtekintheti a filmek leírását, illetve az értékeléseket
+  * Jegyet foglalhat filmekre
+  * Értékeléseket írhat
+  * Megtekintheti a filmek leírását, illetve az értékeléseket
 # 6.Fizikai környezet:
-
+* Az alkalmazást Androidos készülékekre terveztük
+* Fejlesztői eszközök:
+  * MySQL Workbench
+  * AndroidStudio
 # 7.Absztrakt domain modell:
 
 # 8.Architekturális terv:
 
-# 9. Implementációs terv:
-
-# 10. Karbantartási terv:
