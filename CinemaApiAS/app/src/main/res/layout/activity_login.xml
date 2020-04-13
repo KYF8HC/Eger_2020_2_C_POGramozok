@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".activities.MainActivity">
+    tools:context=".activities.LoginActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -13,8 +13,9 @@
         android:layout_above="@id/linearLayout"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
-        android:text="Sign Up"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"/>
+        android:text="Login"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+        android:textColor="@color/colorPrimaryDark" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -23,6 +24,7 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:background="@color/colorPrimaryDark"
         android:orientation="vertical"
         android:padding="10dp">
 
@@ -42,37 +44,32 @@
             android:hint="password"
             android:inputType="textPassword" />
 
-        <EditText
-            android:id="@+id/editTextName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="5dp"
-            android:hint="name"
-            android:inputType="textPersonName" />
 
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textViewLogin"
+        android:id="@+id/textViewRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/linearLayout"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:lineSpacingExtra="7dp"
-        android:text="Already have an Account?\nClick to Login"
+        android:text="Don't have an Account?\nClick to Register"
         android:gravity="center"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorPrimaryDark" />
 
     <Button
-        android:id="@+id/buttonSignUp"
+        android:id="@+id/buttonLogin"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="15dp"
         android:background="@color/colorPrimaryDark"
-        android:text="Sign Up"
-        android:textAllCaps="false"/>
+        android:text="Login"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimary" />
 
 </RelativeLayout>
