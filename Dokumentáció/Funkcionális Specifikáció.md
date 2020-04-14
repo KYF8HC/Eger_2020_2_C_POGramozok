@@ -1,12 +1,9 @@
 # Funkcionális Specifiáció
 
 ## 1.Áttekintés:
-- Kezdetleges tower defense játék Unity-ben, körökre osztott 
-pályák( nagyjából 5-6 pálya). A körök alatt meghatározott ellenségek tűnnek
-fel a térképen, amiket tornyok, egységek segítségével likvidálhatunk,
-ezzel elkerülve azt, hogy bázisunkat lerombolják ellenségünk( ezesetben a gép)
-harcosai. Ahogy teljesítünk egy kört, a következőben ellenségünk hadai még erősebben
-és többen próbálják majd ismét bevenni bázisunkat.
+- Mozis alkalmazás, ahol egy mozinak a filmkinálatát láthatjuk illetve felhasználói fiókot iis létre lehetlesz hozni , annak érdekében hogy ne csak a mozikínálatot láthassuk hanem akár jegyet is tudjunk foglalni a filmekre .
+A filmekre kattintva látható lesz hogy van e még szabad hely abban a teremben ls ha van akkor melyik sorban vagy sorokban vannak szabad helyek . 
+
 
 ## 2.Jelenlegi helyzet:
 - Szeretnénk létrehozni egy mozis weboldalt aminek minden funkciója megfelően müködik és megfelel az elvárásoknak is .
