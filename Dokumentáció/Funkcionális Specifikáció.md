@@ -25,12 +25,9 @@ A filmekre kattintva látható lesz hogy van e még szabad hely abban a teremben
 - Projektünk célja eggyrészt hogy a mozinak a filmkínálatáról akár online is lehessen tájokozódni illetve , hogy az időpontokkal is tisztában lehessenek az emberek. Szeretnénk ezzel megszüntetni a mozi jegypánztárát megrohamozó tömeget és a hosszas várakozási időt  csökkenteni. 
   
 ##  Igényelt üzleti folyamatok modellje
-- Unity fejlesztői környezetben
-- C# nyelven
+- Android studio
 
 ##  Használati esetek
 - Admin felhasználó, tudja szerkeszteni az alkalmazás tartalmát , hogy mindig napra kész legyen , és mindig időben tudjon tájékozodni a felhasználó a filmekről és az időpontokról.
 - Felhasználó megnyitja az alkalmazást és választhat a menüpontokból , hogy melyik filmre kiváncsi vagy szeretne belépni a felhasználó profiljába-
-
-##  Fogalomszótár
 
