@@ -15,21 +15,14 @@ harcosai. Ahogy teljesítünk egy kört, a következőben ellenségünk hadai m�
 ## 3.Követelménylista
 |modul|név|kifejtés|
 |---|---|---|
-|Jogosultság|K1|A felhasználó az email címe és a jelszavasegítségével bejelentkezhet -Ha a megadott email cím vagy jelszó nemmegfelelő,akkor a felhasználó hibaüzenetet kap.|
-|Jogosultság|K2|A felhasználó a felhasználói nevének, emailcímének és jelszavának megadásával regisztrálja magát.|
-|Jogosultság|K3|- Admin : Rendszerhozzáférés, filmek feltöltése , kezelése. Felhasználó: filmek megtekintése , jegyfogaláls , regisztrálás|
-|Modifikáció|K4|A felhasználó módosítani tudja a jegy fogalálst egy bizonyos idő korláton belül.|
-|Felület|footer|egységes lábrész minden oldalra|
+|Jogosultság|Bejelntkezési felület|A felhasználó az email címe és a jelszavasegítségével bejelentkezhet -Ha a megadott email cím vagy jelszó nemmegfelelő,akkor a felhasználó hibaüzenetet kap.|
+|Jogosultság|Regisztráció|A felhasználó a felhasználói nevének, emailcímének és jelszavának megadásával regisztrálja magát.|
+|Jogosultság|Jogosultsági szintek| Admin : Rendszerhozzáférés, filmek feltöltése , kezelése. Felhasználó: filmek megtekintése , jegyfogaláls , regisztrálás|
+|Modifikáció|Jegy módosítás|A felhasználó módosítani tudja a jegy fogalálst egy bizonyos idő korláton belül.|
+|Modifikáció|Jelszó módosítás|A felhasználó belépés után módosítani tudja jleszavát a régi jelszó megadása után.|
 |Modifikáció|footer|Az elérhetőségi iconok és linkek változhatnak|
-|Felület|nyitó oldal|teljes kép méretű slide show, 4-5 kép és címek, lefelé tekerve néhány véletlen kép, szövegek|
-|Felület|rólunk oldal|szöveg, kép változtatható az admin menüben|
-|Felület|kapcsolat oldal|írj nekünk rész|
-|Felület|kapcsolat oldal|google maps|
-|Felület|galléria|kategóriánként szükíthetjük a képek listáját|
-|Felület|galléria|lista vagy gallery nézet (mint a webshopokban)|
-|Felület|galléria|képek listázása feltöltési idő vagy abc alapján (oda-vissza)|
-|Felület|admin menü|semleges oldal, a többi oldalon megjelenő adatokat lehet itt beállítani|
-|Modifikáció|admin menü|adatbázisba frissíti az adatokat|
+|Modifikáció|elfelejtett jelszó|Ha a felhasználó elfelejtette a felhasználónevét, vagy jelszavát akkor ezzel az opcióval egy Adminhoz tud fordulni|
+|Jogosultság|Admin felület|Felület az admin fiókkal rendelkező felhasználó számára. Tartalmaz egy felületet az új filmek feltöltéséhez.|
 
 ## 4. Jelenlegi üzleti folyamatok modellje
 - Projektünk célja eggyrészt hogy a mozinak a filmkínálatáról akár online is lehessen tájokozódni illetve , hogy az időpontokkal is tisztában lehessenek az emberek. Szeretnénk ezzel megszüntetni a mozi jegypánztárát megrohamozó tömeget és a hosszas várakozási időt  csökkenteni. 
