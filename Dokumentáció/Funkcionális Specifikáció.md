@@ -26,6 +26,7 @@ A filmekre kattintva látható lesz hogy van e még szabad hely abban a teremben
   
 ##  Igényelt üzleti folyamatok modellje
 - Android studio
+- Java, SQL, illetve PHP nyelvek alkalmazása
 
 ##  Használati esetek
 - Admin felhasználó, tudja szerkeszteni az alkalmazás tartalmát , hogy mindig napra kész legyen , és mindig időben tudjon tájékozodni a felhasználó a filmekről és az időpontokról.
