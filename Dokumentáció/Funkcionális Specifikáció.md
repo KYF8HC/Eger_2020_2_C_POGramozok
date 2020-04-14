@@ -6,7 +6,7 @@ A filmekre kattintva látható lesz hogy van e még szabad hely abban a teremben
 
 
 ## 2.Jelenlegi helyzet:
-- Szeretnénk létrehozni egy mozis weboldalt aminek minden funkciója megfelően müködik és megfelel az elvárásoknak is .
+- Szeretnénk létrehozni egy mozis alkalmazást aminek minden funkciója megfelően müködik és megfelel az elvárásoknak is .
   a megrendelő szeretne egy pár dolgot extraként , az oldalon ne csak a mozi filmeket és az előadás dátumait lehessen megtekinteni ,hanem akár jegyet is lehessen foglalni egy adott filmre , minden széket jelenitsen meg a program illetve a már lefoglalt székeket is jelenitse meg egy külön szinnel ,vagy jelzéssel , hogy azokra a székekre ne leheseen kétszer jegyet venni.
 
 ## 3.Követelménylista
