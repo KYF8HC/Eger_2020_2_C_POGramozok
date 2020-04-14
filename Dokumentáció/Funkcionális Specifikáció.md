@@ -15,8 +15,15 @@ harcosai. Ahogy teljesítünk egy kört, a következőben ellenségünk hadai m�
 ## 3.Követelménylista
 |modul|név|kifejtés|
 |---|---|---|
-|Felület|általános|letisztult, egységes stílus, responsive|
-|Modifikáció|általános|az oldal tetejére gomb|
+|Jogosultság|K1|A felhasználó az email címe és a jelszava
+segítségével bejelentkezhet.
+Ha a megadott email cím vagy jelszó nem
+megfelelő, akkor a felhasználó hibaüzenetet kap.
+|
+|Jogosultság|K2|A felhasználó a felhasználói nevének, email
+címének és jelszavának megadásával regisztrálja
+magát.
+|
 |Felület|header|egységes fejrész minden oldalra|
 |Modifikáció|header|A kategóriák az változhatnak|
 |Felület|footer|egységes lábrész minden oldalra|
