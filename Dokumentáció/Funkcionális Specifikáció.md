@@ -15,10 +15,8 @@ harcosai. Ahogy teljesítünk egy kört, a következőben ellenségünk hadai m�
 ## 3.Követelménylista
 |modul|név|kifejtés|
 |---|---|---|
-|Jogosultság|K1|A felhasználó az email címe és a jelszavasegítségével bejelentkezhet -Ha a megadott email cím vagy jelszó nemmegfelelő,akkor a felhasználó hibaüzenetet kap.
-|
-|Jogosultság|K2|A felhasználó a felhasználói nevének, emailcímének és jelszavának megadásával regisztrálja magát.
-|
+|Jogosultság|K1|A felhasználó az email címe és a jelszavasegítségével bejelentkezhet -Ha a megadott email cím vagy jelszó nemmegfelelő,akkor a felhasználó hibaüzenetet kap.|
+|Jogosultság|K2|A felhasználó a felhasználói nevének, emailcímének és jelszavának megadásával regisztrálja magát.|
 |Felület|header|egységes fejrész minden oldalra|
 |Modifikáció|header|A kategóriák az változhatnak|
 |Felület|footer|egységes lábrész minden oldalra|
