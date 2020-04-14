@@ -17,8 +17,8 @@ harcosai. Ahogy teljesítünk egy kört, a következőben ellenségünk hadai m�
 |---|---|---|
 |Jogosultság|K1|A felhasználó az email címe és a jelszavasegítségével bejelentkezhet -Ha a megadott email cím vagy jelszó nemmegfelelő,akkor a felhasználó hibaüzenetet kap.|
 |Jogosultság|K2|A felhasználó a felhasználói nevének, emailcímének és jelszavának megadásával regisztrálja magát.|
-|Felület|header|egységes fejrész minden oldalra|
-|Modifikáció|header|A kategóriák az változhatnak|
+|Jogosultság|K3|- Admin : Rendszerhozzáférés, filmek feltöltése , kezelése. Felhasználó: filmek megtekintése , jegyfogaláls , regisztrálás|
+|Modifikáció|K4|A felhasználó módosítani tudja a jegy fogalálst egy bizonyos idő korláton belül.|
 |Felület|footer|egységes lábrész minden oldalra|
 |Modifikáció|footer|Az elérhetőségi iconok és linkek változhatnak|
 |Felület|nyitó oldal|teljes kép méretű slide show, 4-5 kép és címek, lefelé tekerve néhány véletlen kép, szövegek|
