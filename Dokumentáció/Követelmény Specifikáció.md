@@ -39,8 +39,8 @@ Alkalmazásunk minden mozi rendszerébe beépíthető, könnyen elérhető és �
 
 ## 9. Riportok
 Hogyan kellene működnie a rendszernek?
- Admin felhasználó szemontjából: A login felületen belép az admin, a következő felületen pedig új filmet adhat hozzá a mozijához vagy hozzászólásokat törölhet.
- Átlagos felhasználó szempontjából: Sign up felületen regsiztrál felhasználónév, jelszó és e-mail cím segítségével. 
+- Admin felhasználó szemontjából: A login felületen belép az admin, a következő felületen pedig új filmet adhat hozzá a mozijához vagy hozzászólásokat törölhet.
+- Átlagos felhasználó szempontjából: Sign up felületen regsiztrál felhasználónév, jelszó és e-mail cím segítségével. 
 Login felületen belép, a következő felületen pedig jegyfoglalást hajthat végre a felsorolt filmekre(kosárba helyezi azt).
 Ha nem megfelelően hajtotta végre a jegyfoglalást vagy változtatni szeretne azon, lehetősége van adott időkorláton belül megváltoztatni hogy melyik filmre és hova szeretne beülni. Lehetősége van még eltörölni a jegyfoglalást is.
 Ezen kívül hozzászólásokat írhat a filmekhez, ahol látja a többi felhasználó hozzászólásait is.
