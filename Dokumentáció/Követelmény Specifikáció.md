@@ -30,7 +30,8 @@ Alkalmazásunk minden mozi rendszerébe beépíthető, könnyen elérhető és �
 |---|---|---|
 |Jogosultság|Bejelentkezési felület|A felhasználó az e-mail címe és jelszava segítségével bejelentkezhet. Ha ez nem megfelelő, akkor hibaüzenetet dob a program.|
 |Jogosultság|Regisztráció|A felhasználó a felhasználói nevének, e-mail címének és jelszavának megadásával regisztrálja magát.|
-|Jogosultság|Jogosultsági szintek|-Admin: Rendszerhozzáférés, filmek és azok funkcióinak feltöltése, vélemények elbírálása -Felhasználó: Regisztrálás, bejelentkezés, filmek specifikációjának megtekintése, jegyfoglalás, véleményezés.|
+|Jogosultság|Jogosultsági szintek|-Admin: Rendszerhozzáférés, filmek és azok funkcióinak feltöltése, vélemények elbírálása 
+-Felhasználó: Regisztrálás, bejelentkezés, filmek specifikációjának megtekintése, jegyfoglalás, véleményezés.|
 |Jogosultság|Admin felület|Felület az admin fiókkal rendelkező felhasználó számára. Egy olyan felületet tartalmaz, ahol új filmeket lehet feltölteni és hozzászólásokat lehet törölni.
 |Modifikáció|Jegy módosítása| A felhasználó egy adott időkorláton belül módosíthatja a jegyfoglalást, vagy akár le is mondhatja a foglalást.|
 |Modifikáció|Jelszó módosítás|A felhasználó módosíthatja az előre megadott jelszavát másra. Hibát dob ha ugyanarra próbálja megváltoztatni.|
