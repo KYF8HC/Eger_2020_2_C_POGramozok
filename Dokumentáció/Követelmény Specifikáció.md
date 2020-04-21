@@ -23,3 +23,10 @@ Alkalmazásunk minden mozi rendszerébe beépíthető, könnyen elérhető és �
 ## 7. Igényelt üzleti folyamatok modellje
 - A megrendelő egy admin felületbe lépéssel módosíthatja a mozi kínálatát, filmeket tud feltölteni majd beárazni, időpontot és korhatárt tud hozzá rendelni. Ezen kívül szabad kezet kap az értékelések felülbírálásában is.
 - A vásárlók(nézők) ugyancsak bejelentkezve tudnak helyet foglalni egy-egy filmre, és értékelni is tudják azt.
+
+## 8. Követelménylista
+
+|Modul|Név|Kifejezés|
+|---|---|---|
+|Jogosultság|Bejelentkezési felület|A felhasználó az e-mail címe és jelszava segítségével bejelentkezhet. Ha ez nem megfelelő, akkor hibaüzenetet dob a program.
+|Jogosultság|Regisztráció| 
