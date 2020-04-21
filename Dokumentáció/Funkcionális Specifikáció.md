@@ -1,8 +1,8 @@
 # Funkcionális Specifiáció
 
 ## Áttekintés:
-- Mozis alkalmazás, ahol egy mozinak a filmkinálatát láthatjuk illetve felhasználói fiókot iis létre lehetlesz hozni , annak érdekében hogy ne csak a mozikínálatot láthassuk hanem akár jegyet is tudjunk foglalni a filmekre .
-A filmekre kattintva látható lesz hogy van e még szabad hely abban a teremben ls ha van akkor melyik sorban vagy sorokban vannak szabad helyek . 
+- Mozis alkalmazás, ahol egy mozinak a filmkínálatát láthatjuk illetve felhasználói fiókot is létre lehet hozni annak érdekében, hogy ne csak a mozikínálatot láthassuk hanem akár jegyet is tudjunk foglalni a filmekre.
+A filmekre kattintva látható lesz hogy van-e még szabad hely abban a teremben és ha van akkor melyik sorban vagy sorokban vannak szabad helyek . 
 
 
 ## Jelenlegi helyzet:
@@ -22,13 +22,13 @@ A filmekre kattintva látható lesz hogy van e még szabad hely abban a teremben
 |Jogosultság|Admin felület|Felület az admin fiókkal rendelkező felhasználó számára. Tartalmaz egy felületet az új filmek feltöltéséhez.|
 
 ##  Jelenlegi üzleti folyamatok modellje
-- Projektünk célja eggyrészt hogy a mozinak a filmkínálatáról akár online is lehessen tájokozódni illetve , hogy az időpontokkal is tisztában lehessenek az emberek. Szeretnénk ezzel megszüntetni a mozi jegypánztárát megrohamozó tömeget és a hosszas várakozási időt  csökkenteni. 
+- Projektünk célja eggyrészt hogy a mozinak a filmkínálatáról akár online is lehessen tájokozódni illetve, hogy az időpontokkal is tisztában lehessenek az emberek. Szeretnénk ezzel megszüntetni a mozi jegypánztárát megrohamozó tömeget és a hosszas várakozási időt  csökkenteni. 
   
 ##  Igényelt üzleti folyamatok modellje
 - Android studio
 - Java, SQL, illetve PHP nyelvek alkalmazása
 
 ##  Használati esetek
-- Admin felhasználó, tudja szerkeszteni az alkalmazás tartalmát , hogy mindig napra kész legyen , és mindig időben tudjon tájékozodni a felhasználó a filmekről és az időpontokról.
-- Felhasználó megnyitja az alkalmazást és választhat a menüpontokból , hogy melyik filmre kiváncsi vagy szeretne belépni a felhasználó profiljába-
+- Admin felhasználó, tudja szerkeszteni az alkalmazás tartalmát, hogy mindig napra kész legyen , és mindig időben tudjon tájékozodni a felhasználó a filmekről és az időpontokról.
+- Felhasználó megnyitja az alkalmazást és választhat a menüpontokból, hogy melyik filmre kiváncsi vagy szeretne belépni a felhasználó profiljába.
 
