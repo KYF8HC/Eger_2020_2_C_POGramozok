@@ -76,6 +76,54 @@ $app->post('/createuser', function(Request $request, Response $response){
         ->withStatus(422);    
 });
 
+$app->put('/updatemovie/{id}', function(Request $request, Response $response, array $args){
+
+    $id = $args['id'];
+
+    if(!haveEmptyParameters(array('name','description'), $request, $response)){
+
+        $request_data = $request->getParsedBody();
+
+        $name = $request_data['name'];
+        $description = $request_data['description']; 
+     
+
+        $db = new DbOperations; 
+
+        if($db->updateMovie($name, $description, $id)){
+            $response_data = array(); 
+            $response_data['error'] = false; 
+            $response_data['message'] = 'Movie updated successfully';
+            $movie = $db->getMovieById($id);
+            $response_data['movie'] = $movie; 
+
+            $response->write(json_encode($response_data));
+
+            return $response
+            ->withHeader('Content-type', 'application/json')
+            ->withStatus(200);  
+        
+        }else{
+            $response_data = array(); 
+            $response_data['error'] = true; 
+            $response_data['message'] = 'Please try again later';
+            $movie = $db->getMovieById($id);
+            $response_data['movie'] = $movie; 
+
+            $response->write(json_encode($response_data));
+
+            return $response
+            ->withHeader('Content-type', 'application/json')
+            ->withStatus(200);       
+        }
+    }
+    
+    return $response
+    ->withHeader('Content-type', 'application/json')
+    ->withStatus(200);  
+
+});
+
 $app->post('/createmovie', function(Request $request, Response $response){
 
     if(!haveEmptyParameters(array('name', 'description'), $request, $response)){
@@ -189,22 +237,27 @@ $app->post('/userlogin', function(Request $request, Response $response){
 });
 
 $app->get('/allusers', function(Request $request, Response $response){
-
     $db = new DbOperations; 
-
     $users = $db->getAllUsers();
-
     $response_data = array();
-
     $response_data['error'] = false; 
     $response_data['users'] = $users; 
-
     $response->write(json_encode($response_data));
-
     return $response
     ->withHeader('Content-type', 'application/json')
     ->withStatus(200);  
+});
 
+$app->get('/allmovies', function(Request $request, Response $response){
+    $db = new DbOperations; 
+    $movies = $db->getAllMovies();
+    $response_data = array();
+    $response_data['error'] = false; 
+    $response_data['users'] = $movies; 
+    $response->write(json_encode($response_data));
+    return $response
+    ->withHeader('Content-type', 'application/json')
+    ->withStatus(200);  
 });
 
 

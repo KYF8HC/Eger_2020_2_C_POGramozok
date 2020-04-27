@@ -55,6 +55,8 @@
             return $password; 
         }
 
+
+
         public function getAllUsers(){
             $stmt = $this->con->prepare("SELECT id, email, name, access FROM users;");
             $stmt->execute(); 
@@ -85,6 +87,19 @@
             return $user; 
         }
 
+        public function getMovieById($id){
+            $stmt = $this->con->prepare("SELECT id, name, description FROM moovies WHERE id = ?");
+            $stmt->bind_param("i", $id);
+            $stmt->execute(); 
+            $stmt->bind_result($id, $name, $description);
+            $stmt->fetch(); 
+            $movie = array(); 
+            $movie['id'] = $id;
+            $movie['name'] = $name; 
+            $movie['description'] = $description; 
+            return $movie; 
+        }
+
         public function updateUser($email, $name, $access, $id){
             $stmt = $this->con->prepare("UPDATE users SET email = ?, name = ?, access = ? WHERE id = ?");
             $stmt->bind_param("ssii", $email, $name, $access, $id);
@@ -93,19 +108,23 @@
             return false; 
         }
 
+        public function updateMovie($name, $description, $id){
+            $stmt = $this->con->prepare("UPDATE moovies SET name = ?, description = ? WHERE id = ?");
+            $stmt->bind_param("ssi", $name, $description, $id);
+            if($stmt->execute())
+                return true; 
+            return false; 
+        }
+
         public function updatePassword($currentpassword, $newpassword, $email){
-            $hashed_password = $this->getUsersPasswordByEmail($email);
-            
-            if(password_verify($currentpassword, $hashed_password)){
-                
+            $hashed_password = $this->getUsersPasswordByEmail($email);           
+            if(password_verify($currentpassword, $hashed_password)){            
                 $hash_password = password_hash($newpassword, PASSWORD_DEFAULT);
                 $stmt = $this->con->prepare("UPDATE users SET password = ? WHERE email = ?");
                 $stmt->bind_param("ss",$hash_password, $email);
-
                 if($stmt->execute())
                     return PASSWORD_CHANGED;
                 return PASSWORD_NOT_CHANGED;
-
             }else{
                 return PASSWORD_DO_NOT_MATCH; 
             }
