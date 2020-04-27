@@ -193,6 +193,13 @@
                 return true; 
             return false; 
         }
+        public function deleteProjection($id){
+            $stmt = $this->con->prepare("DELETE FROM projection WHERE id = ?");
+            $stmt->bind_param("i", $id);
+            if($stmt->execute())
+                return true; 
+            return false; 
+        }
         private function isProjectionExist($projection_date, $room_id){
             $stmt = $this->con->prepare("SELECT id FROM projection WHERE projection_date = ? AND room_id = ?");
             $stmt->bind_param("si", $projection_date, $room_id);
