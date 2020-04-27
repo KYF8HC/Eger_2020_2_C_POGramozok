@@ -19,3 +19,7 @@
     define('MOVIE_CREATED', 401);
     define('MOVIE_EXISTS', 402);
     define('MOVIE_FAILURE', 403);
+
+    define('PROJECTION_CREATED', 501);
+    define('PROJECTION_EXISTS', 502);
+    define('PROJECTION_FAILURE', 503);

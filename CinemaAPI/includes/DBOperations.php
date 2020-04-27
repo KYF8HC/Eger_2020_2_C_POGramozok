@@ -20,6 +20,19 @@
                 }
             }
 
+        public function createProjection($projection_date, $room_id, $movie_id){
+            if(!$this->isProjectionExist($projection_date, $room_id)){
+                 $stmt = $this->con->prepare("INSERT INTO projection (projection_date, room_id, movie_id) VALUES ( ?, ?, ?)");
+                 $stmt->bind_param("sii", $projection_date, $room_id, $movie_id);
+                 if($stmt->execute()){
+                     return PROJECTION_CREATED; 
+                 }else{
+                     return PROJECTION_FAILURE;
+                 }
+            }
+            return PROJECTION_EXISTS; 
+        }
+
         public function createUser($email, $password, $name, $access){
             if(!$this->isEmailExist($email)){
                  $stmt = $this->con->prepare("INSERT INTO users (email, password, name, access) VALUES (?, ?, ?, ?)");
@@ -157,6 +170,14 @@
             if($stmt->execute())
                 return true; 
             return false; 
+        }
+
+        private function isProjectionExist($projection_date, $room_id){
+            $stmt = $this->con->prepare("SELECT id FROM projection WHERE projection_date = ? AND room_id = ?");
+            $stmt->bind_param("si", $projection_date, $room_id);
+            $stmt->execute(); 
+            $stmt->store_result(); 
+            return $stmt->num_rows > 0;  
         }
 
         private function isEmailExist($email){

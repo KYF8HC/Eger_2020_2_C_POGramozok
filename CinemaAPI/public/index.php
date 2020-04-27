@@ -19,9 +19,7 @@ $app = new \Slim\App([
     method: POST
 */
 $app->post('/createuser', function(Request $request, Response $response){
-
     if(!haveEmptyParameters(array('email', 'password', 'name', 'access'), $request, $response)){
-
         $request_data = $request->getParsedBody(); 
 
         $email = $request_data['email'];
@@ -30,42 +28,31 @@ $app->post('/createuser', function(Request $request, Response $response){
         $school = $request_data['access']; 
 
         $hash_password = password_hash($password, PASSWORD_DEFAULT);
-
+        
         $db = new DbOperations; 
-
-        $result = $db->createUser($email, $hash_password, $name, $school);
+        $result = $db->createUser($email, $hash_password, $name, $school);      
         
         if($result == USER_CREATED){
-
             $message = array(); 
             $message['error'] = false; 
             $message['message'] = 'User created successfully';
-
             $response->write(json_encode($message));
-
             return $response
                         ->withHeader('Content-type', 'application/json')
                         ->withStatus(201);
-
         }else if($result == USER_FAILURE){
-
             $message = array(); 
             $message['error'] = true; 
             $message['message'] = 'Some error occurred';
-
             $response->write(json_encode($message));
-
             return $response
                         ->withHeader('Content-type', 'application/json')
                         ->withStatus(423);    
-
         }else if($result == USER_EXISTS){
             $message = array(); 
             $message['error'] = true; 
             $message['message'] = 'User Already Exists';
-
             $response->write(json_encode($message));
-
             return $response
                         ->withHeader('Content-type', 'application/json')
                         ->withStatus(422);    
@@ -75,7 +62,47 @@ $app->post('/createuser', function(Request $request, Response $response){
         ->withHeader('Content-type', 'application/json')
         ->withStatus(422);    
 });
+$app->post('/createprojection', function(Request $request, Response $response){
+    if(!haveEmptyParameters(array('projection_date', 'room_id', 'movie_id'), $request, $response)){
+        $request_data = $request->getParsedBody(); 
 
+        $projection_date = $request_data['projection_date'];
+        $room_id = $request_data['room_id'];
+        $movie_id = $request_data['movie_id'];
+        
+        $db = new DbOperations; 
+        $result = $db->createProjection($projection_date, $room_id, $movie_id);      
+        
+        if($result == PROJECTION_CREATED){
+            $message = array(); 
+            $message['error'] = false; 
+            $message['message'] = 'Projection created successfully';
+            $response->write(json_encode($message));
+            return $response
+                        ->withHeader('Content-type', 'application/json')
+                        ->withStatus(201);
+        }else if($result == PROJECTION_FAILURE){
+            $message = array(); 
+            $message['error'] = true; 
+            $message['message'] = 'Some error occurred';
+            $response->write(json_encode($message));
+            return $response
+                        ->withHeader('Content-type', 'application/json')
+                        ->withStatus(423);    
+        }else if($result == PROJECTION_EXISTS){
+            $message = array(); 
+            $message['error'] = true; 
+            $message['message'] = 'Projection Already Exists';
+            $response->write(json_encode($message));
+            return $response
+                        ->withHeader('Content-type', 'application/json')
+                        ->withStatus(422);    
+        }
+    }
+    return $response
+        ->withHeader('Content-type', 'application/json')
+        ->withStatus(422);    
+});
 $app->put('/updatemovie/{id}', function(Request $request, Response $response, array $args){
 
     $id = $args['id'];
@@ -123,7 +150,6 @@ $app->put('/updatemovie/{id}', function(Request $request, Response $response, ar
     ->withStatus(200);  
 
 });
-
 $app->post('/createmovie', function(Request $request, Response $response){
 
     if(!haveEmptyParameters(array('name', 'description'), $request, $response)){
@@ -177,7 +203,6 @@ $app->post('/createmovie', function(Request $request, Response $response){
         ->withHeader('Content-type', 'application/json')
         ->withStatus(422);    
 });
-
 $app->post('/userlogin', function(Request $request, Response $response){
 
     if(!haveEmptyParameters(array('email', 'password'), $request, $response)){
@@ -235,7 +260,6 @@ $app->post('/userlogin', function(Request $request, Response $response){
         ->withHeader('Content-type', 'application/json')
         ->withStatus(422);    
 });
-
 $app->get('/allusers', function(Request $request, Response $response){
     $db = new DbOperations; 
     $users = $db->getAllUsers();
@@ -247,7 +271,6 @@ $app->get('/allusers', function(Request $request, Response $response){
     ->withHeader('Content-type', 'application/json')
     ->withStatus(200);  
 });
-
 $app->get('/allmovies', function(Request $request, Response $response){
     $db = new DbOperations; 
     $movies = $db->getAllMovies();
@@ -259,8 +282,6 @@ $app->get('/allmovies', function(Request $request, Response $response){
     ->withHeader('Content-type', 'application/json')
     ->withStatus(200);  
 });
-
-
 $app->put('/updateuser/{id}', function(Request $request, Response $response, array $args){
 
     $id = $args['id'];
@@ -308,7 +329,6 @@ $app->put('/updateuser/{id}', function(Request $request, Response $response, arr
     ->withStatus(200);  
 
 });
-
 $app->put('/updatepassword', function(Request $request, Response $response){
 
     if(!haveEmptyParameters(array('currentpassword', 'newpassword', 'email'), $request, $response)){
@@ -352,8 +372,6 @@ $app->put('/updatepassword', function(Request $request, Response $response){
         ->withHeader('Content-type', 'application/json')
         ->withStatus(422);  
 });
-
-
 $app->delete('/deleteuser/{id}', function(Request $request, Response $response, array $args){
     $id = $args['id'];
     $db = new DbOperations; 
@@ -370,7 +388,6 @@ $app->delete('/deleteuser/{id}', function(Request $request, Response $response, 
     ->withHeader('Content-type', 'application/json')
     ->withStatus(200);
 });
-
 $app->delete('/deletemovie/{id}', function(Request $request, Response $response, array $args){
     $id = $args['id'];
     $db = new DbOperations; 
@@ -387,8 +404,6 @@ $app->delete('/deletemovie/{id}', function(Request $request, Response $response,
     ->withHeader('Content-type', 'application/json')
     ->withStatus(200);
 });
-
-
 function haveEmptyParameters($required_params, $request, $response){
     $error = false; 
     $error_params = '';
@@ -409,5 +424,4 @@ function haveEmptyParameters($required_params, $request, $response){
     }
     return $error; 
 }
-
 $app->run();
