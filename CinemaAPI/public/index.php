@@ -224,7 +224,18 @@ $app->get('/allmovies', function(Request $request, Response $response){
     $movies = $db->getAllMovies();
     $response_data = array();
     $response_data['error'] = false; 
-    $response_data['users'] = $movies; 
+    $response_data['movies'] = $movies; 
+    $response->write(json_encode($response_data));
+    return $response
+    ->withHeader('Content-type', 'application/json')
+    ->withStatus(200);  
+});
+$app->get('/allprojections', function(Request $request, Response $response){
+    $db = new DbOperations; 
+    $projection = $db->getAllProjections();
+    $response_data = array();
+    $response_data['error'] = false; 
+    $response_data['projections'] = $projection; 
     $response->write(json_encode($response_data));
     return $response
     ->withHeader('Content-type', 'application/json')

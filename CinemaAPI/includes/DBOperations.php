@@ -92,6 +92,21 @@
             }             
             return $users; 
         }
+        public function getAllProjections(){
+            $stmt = $this->con->prepare("SELECT id, projection_date, room_id, movie_id FROM projection;");
+            $stmt->execute(); 
+            $stmt->bind_result($id, $projection_date, $room_id, $movie_id);
+            $projections = array(); 
+            while($stmt->fetch()){ 
+                $projection = array(); 
+                $projection['id'] = $id; 
+                $projection['projection_date']=$projection_date; 
+                $projection['room_id'] = $room_id; 
+                $projection['movie_id'] = $movie_id; 
+                array_push($projections, $projection);
+            }             
+            return $projections; 
+        }
         public function getUserByEmail($email){
             $stmt = $this->con->prepare("SELECT id, email, name, access FROM users WHERE email = ?");
             $stmt->bind_param("s", $email);
