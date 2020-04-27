@@ -55,7 +55,20 @@
             return $password; 
         }
 
-
+        public function getAllMovies(){
+            $stmt = $this->con->prepare("SELECT id, name, description FROM moovies;");
+            $stmt->execute(); 
+            $stmt->bind_result($id, $name, $description);
+            $movies = array(); 
+            while($stmt->fetch()){ 
+                $movie = array(); 
+                $movie['id'] = $id; 
+                $movie['name'] = $name; 
+                $movie['description'] = $description; 
+                array_push($movies, $movie);
+            }             
+            return $movies; 
+        }
 
         public function getAllUsers(){
             $stmt = $this->con->prepare("SELECT id, email, name, access FROM users;");
