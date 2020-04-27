@@ -13,8 +13,6 @@ $app = new \Slim\App([
         'displayErrorDetails'=>true
     ]
 ]);
-
-
 /* 
     endpoint: createuser
     parameters: email, password, name, access
@@ -59,12 +57,66 @@ $app->post('/createuser', function(Request $request, Response $response){
 
             return $response
                         ->withHeader('Content-type', 'application/json')
-                        ->withStatus(422);    
+                        ->withStatus(423);    
 
         }else if($result == USER_EXISTS){
             $message = array(); 
             $message['error'] = true; 
             $message['message'] = 'User Already Exists';
+
+            $response->write(json_encode($message));
+
+            return $response
+                        ->withHeader('Content-type', 'application/json')
+                        ->withStatus(422);    
+        }
+    }
+    return $response
+        ->withHeader('Content-type', 'application/json')
+        ->withStatus(422);    
+});
+
+$app->post('/createmovie', function(Request $request, Response $response){
+
+    if(!haveEmptyParameters(array('name', 'description'), $request, $response)){
+
+        $request_data = $request->getParsedBody(); 
+
+        $name = $request_data['name'];
+        $description = $request_data['description'];
+
+        $db = new DbOperations;
+
+        $result = $db->createMovie($name, $description);
+        
+        if($result == MOVIE_CREATED){
+
+            $message = array(); 
+            $message['error'] = false; 
+            $message['message'] = 'Movie created successfully';
+
+            $response->write(json_encode($message));
+
+            return $response
+                        ->withHeader('Content-type', 'application/json')
+                        ->withStatus(401);
+
+        }else if($result == MOVIE_FAILURE){
+
+            $message = array(); 
+            $message['error'] = true; 
+            $message['message'] = 'Some error occurred';
+
+            $response->write(json_encode($message));
+
+            return $response
+                        ->withHeader('Content-type', 'application/json')
+                        ->withStatus(423);    
+
+        }else if($result == MOVIE_EXISTS){
+            $message = array(); 
+            $message['error'] = true; 
+            $message['message'] = 'Movie Already Exists';
 
             $response->write(json_encode($message));
 
@@ -194,10 +246,8 @@ $app->put('/updateuser/{id}', function(Request $request, Response $response, arr
 
             return $response
             ->withHeader('Content-type', 'application/json')
-            ->withStatus(200);  
-              
+            ->withStatus(200);       
         }
-
     }
     
     return $response

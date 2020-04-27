@@ -10,6 +10,7 @@ DROP TABLE IF EXISTS moovies;
 CREATE TABLE moovies(
     id int not null AUTO_INCREMENT UNIQUE,
     name varchar(300) not null,
+    description varchar(500) not null,
     rating tinyint,
     CONSTRAINT moovies_pk PRIMARY KEY(id)
     );

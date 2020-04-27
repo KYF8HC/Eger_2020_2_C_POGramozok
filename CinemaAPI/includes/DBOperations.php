@@ -10,18 +10,28 @@
             $this->con = $db->connect(); 
         }
 
-        public function createUser($email, $password, $name, $access){
-           if(!$this->isEmailExist($email)){
-                $stmt = $this->con->prepare("INSERT INTO users (email, password, name, access) VALUES (?, ?, ?, ?)");
-                $stmt->bind_param("sssi", $email, $password, $name, $access);
+        public function createMovie($name, $description){
+                $stmt = $this->con->prepare("INSERT INTO moovies (name, description) VALUES (?, ?)");
+                $stmt->bind_param("ss", $name, $description);
                 if($stmt->execute()){
-                    return USER_CREATED; 
+                    return MOVIE_CREATED; 
                 }else{
-                    return USER_FAILURE;
+                    return MOVIE_FAILURE;
                 }
-           }
-           return USER_EXISTS; 
-        }
+            }
+
+        public function createUser($email, $password, $name, $access){
+            if(!$this->isEmailExist($email)){
+                 $stmt = $this->con->prepare("INSERT INTO users (email, password, name, access) VALUES (?, ?, ?, ?)");
+                 $stmt->bind_param("sssi", $email, $password, $name, $access);
+                 if($stmt->execute()){
+                     return USER_CREATED; 
+                 }else{
+                     return USER_FAILURE;
+                 }
+            }
+            return USER_EXISTS; 
+         }
 
         public function userLogin($email, $password){
             if($this->isEmailExist($email)){

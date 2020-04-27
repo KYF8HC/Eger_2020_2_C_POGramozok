@@ -15,3 +15,7 @@
     define('PASSWORD_CHANGED', 301);
     define('PASSWORD_DO_NOT_MATCH', 302);
     define('PASSWORD_NOT_CHANGED', 303);
+
+    define('MOVIE_CREATED', 401);
+    define('MOVIE_EXISTS', 402);
+    define('MOVIE_FAILURE', 403);
