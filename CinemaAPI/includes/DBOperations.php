@@ -151,6 +151,13 @@
             return false; 
         }
 
+        public function deleteMovie($id){
+            $stmt = $this->con->prepare("DELETE FROM moovies WHERE id = ?");
+            $stmt->bind_param("i", $id);
+            if($stmt->execute())
+                return true; 
+            return false; 
+        }
 
         private function isEmailExist($email){
             $stmt = $this->con->prepare("SELECT id FROM users WHERE email = ?");
