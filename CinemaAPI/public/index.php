@@ -13,11 +13,6 @@ $app = new \Slim\App([
         'displayErrorDetails'=>true
     ]
 ]);
-/* 
-    endpoint: createuser
-    parameters: email, password, name, access
-    method: POST
-*/
 $app->post('/createuser', function(Request $request, Response $response){
     if(!haveEmptyParameters(array('email', 'password', 'name', 'access'), $request, $response)){
         $request_data = $request->getParsedBody(); 
@@ -102,53 +97,6 @@ $app->post('/createprojection', function(Request $request, Response $response){
     return $response
         ->withHeader('Content-type', 'application/json')
         ->withStatus(422);    
-});
-$app->put('/updatemovie/{id}', function(Request $request, Response $response, array $args){
-
-    $id = $args['id'];
-
-    if(!haveEmptyParameters(array('name','description'), $request, $response)){
-
-        $request_data = $request->getParsedBody();
-
-        $name = $request_data['name'];
-        $description = $request_data['description']; 
-     
-
-        $db = new DbOperations; 
-
-        if($db->updateMovie($name, $description, $id)){
-            $response_data = array(); 
-            $response_data['error'] = false; 
-            $response_data['message'] = 'Movie updated successfully';
-            $movie = $db->getMovieById($id);
-            $response_data['movie'] = $movie; 
-
-            $response->write(json_encode($response_data));
-
-            return $response
-            ->withHeader('Content-type', 'application/json')
-            ->withStatus(200);  
-        
-        }else{
-            $response_data = array(); 
-            $response_data['error'] = true; 
-            $response_data['message'] = 'Please try again later';
-            $movie = $db->getMovieById($id);
-            $response_data['movie'] = $movie; 
-
-            $response->write(json_encode($response_data));
-
-            return $response
-            ->withHeader('Content-type', 'application/json')
-            ->withStatus(200);       
-        }
-    }
-    
-    return $response
-    ->withHeader('Content-type', 'application/json')
-    ->withStatus(200);  
-
 });
 $app->post('/createmovie', function(Request $request, Response $response){
 
@@ -282,6 +230,53 @@ $app->get('/allmovies', function(Request $request, Response $response){
     ->withHeader('Content-type', 'application/json')
     ->withStatus(200);  
 });
+$app->put('/updatemovie/{id}', function(Request $request, Response $response, array $args){
+
+    $id = $args['id'];
+
+    if(!haveEmptyParameters(array('name','description'), $request, $response)){
+
+        $request_data = $request->getParsedBody();
+
+        $name = $request_data['name'];
+        $description = $request_data['description']; 
+     
+
+        $db = new DbOperations; 
+
+        if($db->updateMovie($name, $description, $id)){
+            $response_data = array(); 
+            $response_data['error'] = false; 
+            $response_data['message'] = 'Movie updated successfully';
+            $movie = $db->getMovieById($id);
+            $response_data['movie'] = $movie; 
+
+            $response->write(json_encode($response_data));
+
+            return $response
+            ->withHeader('Content-type', 'application/json')
+            ->withStatus(200);  
+        
+        }else{
+            $response_data = array(); 
+            $response_data['error'] = true; 
+            $response_data['message'] = 'Please try again later';
+            $movie = $db->getMovieById($id);
+            $response_data['movie'] = $movie; 
+
+            $response->write(json_encode($response_data));
+
+            return $response
+            ->withHeader('Content-type', 'application/json')
+            ->withStatus(200);       
+        }
+    }
+    
+    return $response
+    ->withHeader('Content-type', 'application/json')
+    ->withStatus(200);  
+
+});
 $app->put('/updateuser/{id}', function(Request $request, Response $response, array $args){
 
     $id = $args['id'];
@@ -328,6 +323,52 @@ $app->put('/updateuser/{id}', function(Request $request, Response $response, arr
     ->withHeader('Content-type', 'application/json')
     ->withStatus(200);  
 
+});
+$app->put('/updateprojection/{id}', function(Request $request, Response $response, array $args){
+
+    $id = $args['id'];
+
+    if(!haveEmptyParameters(array('projection_date','room_id','movie_id'), $request, $response)){
+
+        $request_data = $request->getParsedBody(); 
+        $projection_date = $request_data['projection_date'];
+        $room_id = $request_data['room_id'];
+        $movie_id = $request_data['movie_id']; 
+     
+
+        $db = new DbOperations; 
+
+        if($db->updateProjection($projection_date, $room_id, $movie_id, $id)){
+            $response_data = array(); 
+            $response_data['error'] = false; 
+            $response_data['message'] = 'Projection updated successfully';
+            $projection = $db->getProjectionById($id);
+            $response_data['projection'] = $projection; 
+
+            $response->write(json_encode($response_data));
+
+            return $response
+            ->withHeader('Content-type', 'application/json')
+            ->withStatus(200);  
+        
+        }else{
+            $response_data = array(); 
+            $response_data['error'] = true; 
+            $response_data['message'] = 'Please try again later';
+            $projection = $db->getProjectionById($id);
+            $response_data['projection'] = $projection; 
+
+            $response->write(json_encode($response_data));
+
+            return $response
+            ->withHeader('Content-type', 'application/json')
+            ->withStatus(200);       
+        }
+    }
+    
+    return $response
+    ->withHeader('Content-type', 'application/json')
+    ->withStatus(200);  
 });
 $app->put('/updatepassword', function(Request $request, Response $response){
 
