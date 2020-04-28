@@ -11,12 +11,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.cinemaapias.R;
-import com.example.cinemaapias.storage.SharedPrefManager;
-
+import com.example.cinemaapias.storage.SharedPreferenceManager;
 
 public class HomeFragment extends Fragment {
 
-    private TextView textViewEmail, textViewName, textViewSchool;
+    private TextView textViewEmail, textViewName;
 
     @Nullable
     @Override
@@ -31,7 +30,7 @@ public class HomeFragment extends Fragment {
         textViewEmail = view.findViewById(R.id.textViewEmail);
         textViewName = view.findViewById(R.id.textViewName);
 
-        textViewEmail.setText(SharedPrefManager.getInstance(getActivity()).getUser().getEmail());
-        textViewName.setText(SharedPrefManager.getInstance(getActivity()).getUser().getName());
+        textViewEmail.setText(SharedPreferenceManager.getInstance(getActivity()).getUser().getEmail());
+        textViewName.setText(SharedPreferenceManager.getInstance(getActivity()).getUser().getName());
     }
 }

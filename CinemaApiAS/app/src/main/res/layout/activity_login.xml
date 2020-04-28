@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorPrimaryBackground"
     tools:context=".activities.LoginActivity">
 
     <TextView
@@ -15,7 +15,7 @@
         android:layout_marginBottom="10dp"
         android:text="Login"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
-        android:textColor="@color/colorPrimaryDark" />
+        android:textColor="@color/colorFormBackground" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -24,7 +24,7 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/colorFormBackground"
         android:orientation="vertical"
         android:padding="10dp">
 
@@ -32,6 +32,7 @@
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_email"
             android:drawablePadding="5dp"
             android:hint="email"
             android:inputType="textEmailAddress" />
@@ -40,6 +41,7 @@
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_password"
             android:drawablePadding="5dp"
             android:hint="password"
             android:inputType="textPassword" />
@@ -58,7 +60,7 @@
         android:text="Don't have an Account?\nClick to Register"
         android:gravity="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-        android:textColor="@color/colorPrimaryDark" />
+        android:textColor="@color/colorFormBackground" />
 
     <Button
         android:id="@+id/buttonLogin"
@@ -70,6 +72,6 @@
         android:background="@color/colorPrimaryDark"
         android:text="Login"
         android:textAllCaps="false"
-        android:textColor="@color/colorPrimary" />
+        android:textColor="@color/colorFormBackground" />
 
 </RelativeLayout>

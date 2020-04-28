@@ -10,15 +10,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cinemaapias.R;
-import com.example.cinemaapias.api.Client;
+import com.example.cinemaapias.api.RetrofitClient;
 import com.example.cinemaapias.models.DefaultResponse;
-import com.example.cinemaapias.storage.SharedPrefManager;
+import com.example.cinemaapias.storage.SharedPreferenceManager;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
-
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -38,12 +36,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.textViewLogin).setOnClickListener(this);
     }
 
-
     @Override
     protected void onStart() {
         super.onStart();
-        if(SharedPrefManager.getInstance(this).isLoggedIn()){
-            Intent intent = new Intent(this, ProfileActivity.class);
+        if(SharedPreferenceManager.getInstance(this).isLoggedIn()){
+            Intent intent = new Intent(this,
+                    ProfileActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }
@@ -53,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
         String name = editTextName.getText().toString().trim();
+        int access = 2;
 
         if (email.isEmpty()) {
             editTextEmail.setError("Email is required");
@@ -79,28 +78,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             editTextName.requestFocus();
             return;
         }
-        Call<DefaultResponse> call = Client
+        Call<DefaultResponse> call = RetrofitClient
                 .getInstance()
                 .getApi()
-                .createUser(email, password, name, 2);
+                .createUser(email, password, name, access);
         call.enqueue(new Callback<DefaultResponse>() {
             @Override
             public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
                 if (response.code() == 201) {
                     DefaultResponse dr = response.body();
-                    Toast.makeText(MainActivity.this, dr.getMsg(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this,
+                            dr.getMsg(),
+                            Toast.LENGTH_LONG).show();
                 } else if (response.code() == 422) {
-                    Toast.makeText(MainActivity.this, "User already exist", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this,
+                            "User already exist!",
+                            Toast.LENGTH_LONG).show();
+                } else if (response.code() == 423) {
+                    Toast.makeText(MainActivity.this,
+                            "Some error occurred!!",
+                            Toast.LENGTH_LONG).show();
                 }
             }
-
             @Override
             public void onFailure(Call<DefaultResponse> call, Throwable t) {
-                Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
+
             }
         });
-
-
     }
 
     @Override

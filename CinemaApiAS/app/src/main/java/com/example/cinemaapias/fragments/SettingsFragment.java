@@ -18,20 +18,19 @@ import androidx.fragment.app.Fragment;
 import com.example.cinemaapias.R;
 import com.example.cinemaapias.activities.LoginActivity;
 import com.example.cinemaapias.activities.MainActivity;
-import com.example.cinemaapias.api.Client;
+import com.example.cinemaapias.api.RetrofitClient;
 import com.example.cinemaapias.models.DefaultResponse;
 import com.example.cinemaapias.models.LoginResponse;
 import com.example.cinemaapias.models.User;
-import com.example.cinemaapias.storage.SharedPrefManager;
+import com.example.cinemaapias.storage.SharedPreferenceManager;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
 public class SettingsFragment extends Fragment implements View.OnClickListener {
 
-    private EditText editTextEmail, editTextName, editTextSchool;
+    private EditText editTextEmail, editTextName;
     private EditText editTextCurrentPassword, editTextNewPassword;
 
 
@@ -47,12 +46,11 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
 
         editTextEmail = view.findViewById(R.id.editTextEmail);
         editTextName = view.findViewById(R.id.editTextName);
-        editTextSchool = view.findViewById(R.id.editTextSchool);
-        editTextCurrentPassword = view.findViewById(R.id.editTextCurrentPassword);
-        editTextNewPassword = view.findViewById(R.id.editTextNewPassword);
+       /*editTextCurrentPassword = view.findViewById(R.id.editTextCurrentPassword);
+        editTextNewPassword = view.findViewById(R.id.editTextNewPassword);*/
 
         view.findViewById(R.id.buttonSave).setOnClickListener(this);
-        view.findViewById(R.id.buttonChangePassword).setOnClickListener(this);
+        /*view.findViewById(R.id.buttonChangePassword).setOnClickListener(this);*/
         view.findViewById(R.id.buttonLogout).setOnClickListener(this);
         view.findViewById(R.id.buttonDelete).setOnClickListener(this);
     }
@@ -60,7 +58,6 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
     private void updateProfile() {
         String email = editTextEmail.getText().toString().trim();
         String name = editTextName.getText().toString().trim();
-        String school = editTextSchool.getText().toString().trim();
 
         if (email.isEmpty()) {
             editTextEmail.setError("Email is required");
@@ -79,80 +76,58 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
             editTextName.requestFocus();
             return;
         }
+        User user = SharedPreferenceManager.getInstance(getActivity()).getUser();
 
-        if (school.isEmpty()) {
-            editTextSchool.setError("School required");
-            editTextSchool.requestFocus();
-            return;
-        }
-
-        User user = SharedPrefManager.getInstance(getActivity()).getUser();
-
-        Call<LoginResponse> call = Client.getInstance()
+        Call<LoginResponse> call = RetrofitClient.getInstance()
                 .getApi().updateUser(
                         user.getId(),
                         email,
                         name,
-                        school
+                        2
                 );
-
         call.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-
                 Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_LONG).show();
-
                 if (!response.body().isError()) {
-                    SharedPrefManager.getInstance(getActivity()).saveUser(response.body().getUser());
+                    SharedPreferenceManager.getInstance(getActivity()).saveUser(response.body().getUser());
                 }
-
             }
-
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-
             }
         });
     }
 
-    private void updatePassword() {
+   /* private void updatePassword() {
         String currentpassword = editTextCurrentPassword.getText().toString().trim();
         String newpassword = editTextNewPassword.getText().toString().trim();
-
         if (currentpassword.isEmpty()) {
             editTextCurrentPassword.setError("Password required");
             editTextCurrentPassword.requestFocus();
             return;
         }
-
         if (newpassword.isEmpty()) {
             editTextNewPassword.setError("Enter new password");
             editTextNewPassword.requestFocus();
             return;
         }
-
-
-        User user = SharedPrefManager.getInstance(getActivity()).getUser();
-
-        Call<DefaultResponse> call = Client.getInstance().getApi()
+        User user = SharedPreferenceManager.getInstance(getActivity()).getUser();
+        Call<DefaultResponse> call = RetrofitClient.getInstance().getApi()
                 .updatePassword(currentpassword, newpassword, user.getEmail());
-
         call.enqueue(new Callback<DefaultResponse>() {
             @Override
             public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
-
                 Toast.makeText(getActivity(), response.body().getMsg(), Toast.LENGTH_LONG).show();
             }
-
             @Override
             public void onFailure(Call<DefaultResponse> call, Throwable t) {
-
             }
         });
-    }
+    }*/
 
     private void logout() {
-        SharedPrefManager.getInstance(getActivity()).clear();
+        SharedPreferenceManager.getInstance(getActivity()).clear();
         Intent intent = new Intent(getActivity(), LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
@@ -165,16 +140,16 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                User user = SharedPrefManager.getInstance(getActivity()).getUser();
-                Call<DefaultResponse> call = Client.getInstance().getApi().deleteUser(user.getId());
+                User user = SharedPreferenceManager.getInstance(getActivity()).getUser();
+                Call<DefaultResponse> call = RetrofitClient.getInstance().getApi().deleteUser(user.getId());
 
                 call.enqueue(new Callback<DefaultResponse>() {
                     @Override
                     public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
 
                         if (!response.body().isErr()) {
-                            SharedPrefManager.getInstance(getActivity()).clear();
-                            SharedPrefManager.getInstance(getActivity()).clear();
+                            SharedPreferenceManager.getInstance(getActivity()).clear();
+                            SharedPreferenceManager.getInstance(getActivity()).clear();
                             Intent intent = new Intent(getActivity(), MainActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
@@ -208,9 +183,9 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
             case R.id.buttonSave:
                 updateProfile();
                 break;
-            case R.id.buttonChangePassword:
+            /*case R.id.buttonChangePassword:
                 updatePassword();
-                break;
+                break;*/
             case R.id.buttonLogout:
                 logout();
                 break;

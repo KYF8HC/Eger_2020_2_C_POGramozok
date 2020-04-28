@@ -2,19 +2,22 @@ package com.example.cinemaapias.models;
 
 public class User {
 
-    private int id;
+    private int id, access;
     private String email, name;
-    private int access;
 
-    public User(int id, String email, String name, int access) {
+    public User(int id, int access, String email, String name) {
         this.id = id;
+        this.access = access;
         this.email = email;
         this.name = name;
-        this.access = access;
     }
 
     public int getId() {
         return id;
+    }
+
+    public int getAccess() {
+        return access;
     }
 
     public String getEmail() {
@@ -23,9 +26,5 @@ public class User {
 
     public String getName() {
         return name;
-    }
-
-    public int getAccess() {
-        return access;
     }
 }

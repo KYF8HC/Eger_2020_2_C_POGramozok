@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cinemaapias.R;
 import com.example.cinemaapias.adapters.UsersAdapter;
-import com.example.cinemaapias.api.Client;
+import com.example.cinemaapias.api.RetrofitClient;
 import com.example.cinemaapias.models.User;
 import com.example.cinemaapias.models.UsersResponse;
 
@@ -23,11 +23,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
 public class UsersFragment extends Fragment {
+
     private RecyclerView recyclerView;
     private UsersAdapter adapter;
-    private List<User> userList;
+    private List<User> users;
 
     @Nullable
     @Override
@@ -38,17 +38,21 @@ public class UsersFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        Call<UsersResponse> call = Client.getInstance().getApi().getUsers();
+
+        Call<UsersResponse> call = RetrofitClient.getInstance().getApi().getUsers();
 
         call.enqueue(new Callback<UsersResponse>() {
             @Override
             public void onResponse(Call<UsersResponse> call, Response<UsersResponse> response) {
-                userList = response.body().getUsers();
-                adapter = new UsersAdapter(getActivity(), userList);
+
+                users = response.body().getUsers();
+                adapter = new UsersAdapter(getActivity(), users);
                 recyclerView.setAdapter(adapter);
             }
+
             @Override
             public void onFailure(Call<UsersResponse> call, Throwable t) {
 

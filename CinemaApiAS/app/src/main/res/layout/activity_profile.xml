@@ -16,14 +16,14 @@
     </RelativeLayout>
 
 
-    <android.support.design.widget.BottomNavigationView
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimary"
         app:itemIconTint="#ffffff"
         app:itemTextColor="@color/colorPrimaryDark"
-        app:menu="@menu/bottom_menu" />
-
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        app:menu="@menu/bottom_menu"
+        />
 </RelativeLayout>

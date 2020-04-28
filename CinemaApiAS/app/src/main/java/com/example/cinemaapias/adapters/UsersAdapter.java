@@ -14,8 +14,7 @@ import com.example.cinemaapias.models.User;
 
 import java.util.List;
 
-public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHolder> {
-
+public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHolder>  {
     private Context mCtx;
     private List<User> userList;
 
@@ -26,14 +25,15 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHol
 
     @NonNull
     @Override
-    public UsersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mCtx).inflate(R.layout.recyclerview_users, parent, false);
-        return new UsersViewHolder(view);
+    public UsersAdapter.UsersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(mCtx).inflate(R.layout.recylerview_users, parent, false);
+        return new UsersAdapter.UsersViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull UsersViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull UsersAdapter.UsersViewHolder holder, int position) {
         User user = userList.get(position);
+
         holder.textViewName.setText(user.getName());
         holder.textViewEmail.setText(user.getEmail());
     }
@@ -43,16 +43,14 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHol
         return userList.size();
     }
 
-    class UsersViewHolder extends RecyclerView.ViewHolder {
+     class UsersViewHolder extends RecyclerView.ViewHolder{
+        TextView textViewName, textViewEmail;
 
-        TextView textViewName, textViewEmail, textViewSchool;
-
-        public UsersViewHolder(View itemView) {
+        public UsersViewHolder(@NonNull View itemView) {
             super(itemView);
 
             textViewName = itemView.findViewById(R.id.textViewName);
             textViewEmail = itemView.findViewById(R.id.textViewEmail);
-            textViewSchool = itemView.findViewById(R.id.textViewSchool);
         }
     }
 }
