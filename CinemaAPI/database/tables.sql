@@ -1,4 +1,4 @@
-DROP TABLE IF eXISTS users;
+
 CREATE TABLE users(
     id int NOT NULL AUTO_INCREMENT UNIQUE,
     email varchar(200) NOT NULL UNIQUE,
@@ -6,7 +6,7 @@ CREATE TABLE users(
     name varchar(200) NOT Null,
     CONSTRAINT users_pk PRIMARY KEY(id)
     );
-DROP TABLE IF EXISTS moovies;
+
 CREATE TABLE moovies(
     id int not null AUTO_INCREMENT UNIQUE,
     name varchar(300) not null,
@@ -14,17 +14,17 @@ CREATE TABLE moovies(
     rating tinyint,
     CONSTRAINT moovies_pk PRIMARY KEY(id)
     );
-DROP TABLE IF EXISTS rooms;
+
 CREATE TABLE rooms(
     id int not null AUTO_INCREMENT UNIQUE,
     slots int not null,
     CONSTRAINT room_pk PRIMARY KEY(id)
     );
     
-DROP TABLE IF EXISTS projection;
+
 CREATE TABLE projection(
     id int NOT null AUTO_INCREMENT UNIQUE,
-	projection_date date not null,
+	projection_date datetime not null,
     room_id int not null,
     moovie_id int not null,
     CONSTRAINT projection_pk PRIMARY KEY(id),
