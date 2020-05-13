@@ -1,5 +1,9 @@
 package com.example.cinemaapias.activities;
 
+Intent intent = new Intent();
+        intent.setType("video/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent,"Select a Video "), SELECT_VIDEO);
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -118,4 +122,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (resultCode == RESULT_OK) {
+
+            if (requestCode == SELECT_VIDEO)
+            {
+                System.out.println("SELECT_VIDEO");
+                Uri selectedImageUri = data.getData();
+                selectedPath = getPath(selectedImageUri);
+                System.out.println("SELECT_VIDEO Path : " + selectedPath);
+
+                uploadVideo(selectedPath);
+            }
 }
