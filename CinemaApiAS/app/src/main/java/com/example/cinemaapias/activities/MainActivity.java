@@ -211,7 +211,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onFailure(Call<DefaultResponse> call, Throwable t) {
-
             }
         });
     }
@@ -225,6 +224,53 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.textViewLogin:
                 startActivity(new Intent(this, LoginActivity.class));
                 break;
+        }
+        if (!isValidEmailId(email.getText().toString().trim()) || (phone.getText().toString().length() != 10)) {
+            Toast.makeText(getApplicationContext(), "Email/Phone number not valid", Toast.LENGTH_SHORT).show();
+        } else {
+            final String Email = email.getText().toString();
+            final String phoneno = phone.getText().toString();
+
+            final Dialog dialog = new Dialog(context);
+            dialog.setContentView(R.layout.activity_user_information);
+            WindowManager.LayoutParams params = dialog.getWindow().getAttributes();
+            params.width = WindowManager.LayoutParams.FILL_PARENT;
+            dialog.getWindow().setAttributes((WindowManager.LayoutParams) params);
+            final EditText namecard = (EditText) dialog.findViewById(R.id.nameoncard);
+            final EditText creditcard = (EditText) dialog.findViewById(R.id.creditcard);
+            final EditText cvvno = (EditText) dialog.findViewById(R.id.cvv);
+            final EditText valid = (EditText) dialog.findViewById(R.id.vt1);
+            final EditText valid1 = (EditText) dialog.findViewById(R.id.vt2);
+
+            Button order = (Button) dialog.findViewById(R.id.completeorder);
+            order.setText("Complete Order ( Total " + arr.get(4) + ")");
+            order.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    ArrayList<String> reversedarry = new ArrayList<String>();
+                    if ((namecard.getText().toString().isEmpty()) || (creditcard.getText().toString().isEmpty()) || (cvvno.getText().toString().isEmpty()) || (valid.getText().toString().isEmpty())) {
+                        Toast.makeText(getApplicationContext(), "Please insert the data", Toast.LENGTH_SHORT).show();
+                    } else {
+                        int booking_id = 0;
+                        Log.d("phone no", phoneno);
+                        Cursor max = db.getmaxbooking(sql);
+                        if (max != null && max.getCount() > 0) {
+                            while (max.moveToNext()) {
+                                maximum = max.getInt(0);
+                            }
+                        }
+                        if (db.insertmoviebooked(Integer.parseInt(movie_id), seats.getText().toString(), theatre1, time1, date1, 10, Email, phoneno)) {
+
+                            Intent intent;
+                            intent = new Intent(context, MovieConfirmation.class);
+                            intent.putExtra("booking_id", (maximum + 1));
+                            context.startActivity(intent);
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Error in Movie Booking. Please try again", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }
+            });
+            dialog.show();
         }
 
     }
