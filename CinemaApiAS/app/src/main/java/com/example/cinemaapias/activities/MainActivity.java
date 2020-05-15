@@ -46,6 +46,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private EditText editTextEmail, editTextPassword, editTextName;
 
+    /* SeatSelection*/
+    /*
+    ArrayList<String> arrayList= new ArrayList<String>();
+    ArrayList<String> arrayList1= new ArrayList<String>();
+    SQLiteDatabase sql;
+    DatabaseHelper db;
+    ArrayList<ArrayList<String>> outer = new ArrayList<ArrayList<String>>();
+    int seats_counter =0 ;
+    Button A1,A2,A3,A4,A5,A6,A7,A8,A9,A10;
+    Button B1,B2,B3,B4,B5,B6,B7,B8;
+    Button C1,C2,C3,C4,C5,C6,C7,C8;
+    Button D1,D2,D3,D4,D5,D6,D7,D8;
+    String temp, temp1;
+    int colorid;
+    int flag=0;
+    Bundle bundle;
+
+    int movie;
+    String date;
+    String theatre;
+    String time;
+    String seats;*/
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.buttonSignUp).setOnClickListener(this);
         findViewById(R.id.textViewLogin).setOnClickListener(this);
 
-         db = new DatabaseHelper(getApplicationContext());
+         /*db = new DatabaseHelper(getApplicationContext());
         sql = db.getWritableDatabase();
         Toast toast = Toast.makeText(getApplicationContext(), "Confirmation Page", Toast.LENGTH_LONG);
         Intent intent = getIntent();
@@ -140,10 +163,245 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         bundle.putString("price", price.getText().toString());
         Button bktkt = (Button) findViewById(R.id.pay);
-        bktkt.setOnClickListener(new View.OnClickListener() */
+        bktkt.setOnClickListener(new View.OnClickListener(); */
 
+        /* SeatSelection */
+        /*
+        A1 = (Button) findViewById(R.id.A1);
+        A2 = (Button) findViewById(R.id.A2);
+        A3 = (Button) findViewById(R.id.A3);
+        A4 = (Button) findViewById(R.id.A4);
+        A5 = (Button) findViewById(R.id.A5);
+        A6 = (Button) findViewById(R.id.A6);
+
+        Bundle b = getIntent().getExtras();
+        movie = b.getInt("movie_id");
+        date = b.getString("date");
+        theatre = b.getString("theatre");
+        time = b.getString("time");
+        int j=0;
+        String seating="";
+        System.out.print(theatre);
+
+        Cursor seatnos = db.getseats(sql,theatre, date, time,movie);
+        System.out.print("   " + seatnos.getCount());
+
+        if(seatnos !=null && seatnos.getCount() >0) {
+            System.out.print(seating);
+            while (seatnos.moveToNext()) {
+                if ( j==0) {
+                    seating = seatnos.getString(0);
+
+                } else if (seatnos.getCount() >1) {
+                    seating = seating + ',';
+                    if (!seatnos.isLast()) {
+                        seating = seating + seatnos.getString(0);
+                    } else {
+                        seating = seating + seatnos.getString(0);
+                    }
+                }
+                j++;
+            }
+
+            System.out.print(" " + seating);
+            List<String> seats_booked = Arrays.asList(seating.split(","));
+
+
+            for (int i = 0; i < seats_booked.size(); i++) {
+                System.out.println("Split String: " + seats_booked.get(i));
+                if ("A1".equals(seats_booked.get(i))) {
+                    A1.setBackgroundColor(Color.parseColor("#A45B5B"));
+                } else if ("A2".equals(seats_booked.get(i))) {
+                    A2.setBackgroundColor(Color.parseColor("#A45B5B"));
+                } else if ("A3".equals(seats_booked.get(i))) {
+                    A3.setBackgroundColor(Color.parseColor("#A45B5B"));
+                } else if ("A4".equals(seats_booked.get(i))) {
+                    A4.setBackgroundColor(Color.parseColor("#A45B5B"));
+                } else if ("A5".equals(seats_booked.get(i))) {
+                    A5.setBackgroundColor(Color.parseColor("#A45B5B"));
+                } else if ("A6".equals(seats_booked.get(i))) {
+                    A6.setBackgroundColor(Color.parseColor("#A45B5B"));
+
+            }
+        }
+        else
+        {
+            System.out.print("no print");
+        }
+        A1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+                ColorDrawable buttonColor = (ColorDrawable) A1.getBackground();
+                colorid= buttonColor.getColor();
+
+                if(colorid==(-1654272)) {
+                    System.out.println("I am in selected seat");
+                    A1.setBackgroundColor(Color.parseColor("#87A96B"));
+                    seats_counter++;
+                    arrayList.add("A1");
+                }
+                else if(colorid== (-6005925)){
+                    System.out.println("This seat is already booked");
+                    Toast toast= Toast.makeText(getApplicationContext(),"Sorry, this seat is already booked.",Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+                else if(colorid== (-7886485)){
+                    System.out.println("This seat is unselected");
+                    A1.setBackgroundColor(Color.parseColor("#E6C200"));
+                    seats_counter--;
+                    arrayList.remove("A1");
+                }
+            }
+        });
+
+            A2.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+
+                    ColorDrawable buttonColor = (ColorDrawable) A2.getBackground();
+                    colorid= buttonColor.getColor();
+
+                    if(colorid==(-1654272)) {
+                        A2.setBackgroundColor(Color.parseColor("#87A96B"));
+                        seats_counter++;
+                        arrayList.add("A2");
+                        System.out.println("The seats are :"+ arrayList);
+                    }
+                    else if(colorid== (-6005925)){
+                        Toast toast= Toast.makeText(getApplicationContext(),"Sorry, this seat is already booked.",Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
+                    else if(colorid== (-7886485)){
+                        A2.setBackgroundColor(Color.parseColor("#E6C200"));
+                        seats_counter--;
+                        arrayList.remove("A2");
+                    }
+                }
+            });
+
+            A3.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+
+                    ColorDrawable buttonColor = (ColorDrawable) A3.getBackground();
+                    colorid= buttonColor.getColor();
+
+                    if(colorid==(-1654272)) {
+                        A3.setBackgroundColor(Color.parseColor("#87A96B"));
+                        seats_counter++;
+                        arrayList.add("A3");
+
+                    }
+                    else if(colorid== (-6005925)){
+                        Toast toast= Toast.makeText(getApplicationContext(),"Sorry, this seat is already booked.",Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
+                    else if(colorid== (-7886485)){
+
+                        A3.setBackgroundColor(Color.parseColor("#E6C200"));
+                        seats_counter--;
+                        arrayList.remove("A3");
+                    }
+                }
+            });
+
+            A4.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+
+                    ColorDrawable buttonColor = (ColorDrawable) A4.getBackground();
+                    colorid= buttonColor.getColor();
+
+                    if(colorid==(-1654272)) {
+                        A4.setBackgroundColor(Color.parseColor("#87A96B"));
+                        seats_counter++;
+                        arrayList.add("A4");
+                    }
+                    else if(colorid== (-6005925)){
+                        Toast toast= Toast.makeText(getApplicationContext(),"Sorry, this seat is already booked.",Toast.LENGTH_LONG);
+                        toast.show();
+                    }
+                    else if(colorid== (-7886485)){
+                        A4.setBackgroundColor(Color.parseColor("#E6C200"));
+                        seats_counter--;
+                        arrayList.remove("A4");
+                    }
+                }
+            });
+
+            A5.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+
+                    ColorDrawable buttonColor = (ColorDrawable) A5.getBackground();
+                    colorid= buttonColor.getColor();
+
+                    if(colorid==(-1654272)) {
+                        A5.setBackgroundColor(Color.parseColor("#87A96B"));
+                        seats_counter++;
+                        arrayList.add("A5");
+
+                    }
+                    else if(colorid== (-6005925)){
+                        Toast toast= Toast.makeText(getApplicationContext(),"Sorry, this seat is already booked.",Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
+                    else if(colorid== (-7886485)){
+
+                        A5.setBackgroundColor(Color.parseColor("#E6C200"));
+                        seats_counter--;
+                        arrayList.remove("A5");
+                    }
+                }
+            });
+
+            A6.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+
+                    ColorDrawable buttonColor = (ColorDrawable) A6.getBackground();
+                    colorid= buttonColor.getColor();
+
+                    if(colorid==(-1654272)) {
+                        A6.setBackgroundColor(Color.parseColor("#87A96B"));
+                        seats_counter++;
+                        arrayList.add("A6");
+                    }
+                    else if(colorid== (-6005925)){
+                        Toast toast= Toast.makeText(getApplicationContext(),"Sorry, this seat is already booked.",Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
+                    else if(colorid== (-7886485)){
+                        A6.setBackgroundColor(Color.parseColor("#E6C200"));
+                        seats_counter--;
+                        arrayList.remove("A6");
+                    }
+                }
+            });
+    }
     }
 
+    public void counter(){
+
+        int size ;
+
+        if(flag==0){
+            temp= Integer.toString(seats_counter);
+            arrayList1.add(temp);
+            outer.add(arrayList1);
+            flag=1;
+        }
+        else{
+            size = arrayList1.size();
+            String get_currval = arrayList1.get(size-1);
+            arrayList1.remove(get_currval);
+            temp= Integer.toString(seats_counter);
+            arrayList1.add(temp);
+            outer.add(arrayList1);
+        }
+    }
+         */
     @Override
     protected void onStart() {
         super.onStart();
@@ -225,6 +483,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(this, LoginActivity.class));
                 break;
         }
+        /*
         if (!ValidEmailId(email.getText().toString().trim()) || (phone.getText().toString().length() != 10)) {
             Toast.makeText(getApplicationContext(), "Email/Phone number not valid", Toast.LENGTH_SHORT).show();
         } else {
@@ -272,7 +531,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             });
             dialog.show();
         }
+         */
     }
+    /*
     private boolean ValidEmailId(String email){
 
         return Pattern.compile("^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
@@ -282,4 +543,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
                 + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$").matcher(email).matches();
     }
+    */
 }
